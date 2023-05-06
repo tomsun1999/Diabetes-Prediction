@@ -1,14 +1,17 @@
+
+ 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
     <title>Diabetes Prediction</title>
 </head>
 <body>
     <h1>Diabetes Prediction Survey</h1>
-    <form id="survey-form">
+    <form id="survey-form" method="POST" action="{{ url_for('predict') }}">
         <label for="physical_health">For how many days during the past 30 days was your physical health not good?</label>
         <input type="number" id="physical_health" name="physical_health" min="1" max="30" required>
         <br>
@@ -111,7 +114,9 @@
 
         <button type="submit">Predict</button>
     </form>
+    <br>
+    <br>
+    {{ prediction_text }}
+  
 </body>
 </html>
-
-
