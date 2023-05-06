@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Diabetes Prediction</title>
+</head>
+<body>
+    <h1>Diabetes Prediction Survey</h1>
+    <form id="survey-form">
+        <label for="physical_health">For how many days during the past 30 days was your physical health not good?</label>
+        <input type="number" id="physical_health" name="physical_health" min="1" max="30" required>
+        <br>
+
+        <label for="mental_health">For how many days during the past 30 days was your mental health not good?</label>
+        <input type="number" id="mental_health" name="mental_health" min="1" max="30" required>
+        <br>
+
+        <label for="employment_stats">Employment Status:</label>
+        <select name="employment_stats" id="employment_stats" required>
+            <option value="1">Employed for wages</option>
+            <option value="2">Self-employed</option>
+            <option value="3">Out of work for 1 year or more</option>
+            <option value="4">Out of work for less than 1 year</option>
+            <option value="5">A homemaker</option>
+            <option value="6">A student</option>
+            <option value="7">Retired</option>
+            <option value="8">Unable to work</option>
+            <option value="9">Refused</option>
+        </select>
+        <br>
+
+        <label for="general_health">Would you say that in general your health is?</label>
+        <select name="general_health" id="general_health" required>
+            <option value="1">Excellent</option>
+            <option value="2">Very good</option>
+            <option value="3">Good</option>
+            <option value="4">Fair</option>
+            <option value="5">Poor</option>
+            <option value="7">Don't know/Not sure</option>
+            <option value="9">Refused</option>
+        </select>
+        <br>
+
+        <label for="last_visit">How long has it been since you last visited a doctor for a routine checkup?</label>
+        <select name="last_visit" id="last_visit" required>
+            <option value="1">Within past year (anytime less than 12 months ago)</option>
+            <option value="2">Within past 2 years (1 year but less than 2 years ago)</option>
+            <option value="3">Within past 5 years (2 years but less than 5 years ago)</option>
+            <option value="4">5 or more years ago</option>
+            <option value="7">Don't know/Not sure</option>
+            <option value="8">Never</option>
+            <option value="9">Refused</option>
+        </select>
+        <br>
+
+        <label for="income">Annual Household Income:</label>
+        <select name="income" id="income" required>
+            <option value="1">Less than $10,000</option>
+            <option value="2">Less than $15,000 ($10,000 to less than $15,000)</option>
+            <option value="3">Less than $20,000 ($15,000 to less than $20,000)</option>
+            <option value="4">Less than $25,000 ($20,000 to less than $25,000)</option>
+            <option value="5">Less than $35,000 ($25,000 to less than $35,000)</option>
+            <option value="6">Less than $50,000 ($35,000 to less than $50,000)</option>
+            <option value="7">Less than $75,000 ($50,000 to less than $75,000)</option>
+            <option value="8">$75,000 or more</option>
+            <option value="77">Don't know/Not sure</option>
+            <option value="99">Refused</option>
+        </select>
+        <br>
+
+        <label for="marital">Marital Status:</label>
+        <select name="marital" id="marital" required>
+            <option value="1">Married</option>
+            <option value="2">Divorced</option>
+            <option value="3">Widowed</option>
+            <option value="4">Separated</option>
+            <option value="5">Never married</option>
+            <option value="6">A member of an unmarried couple</option>
+            <option value="9">Refused</option>
+        </select>
+        <br>
+
+        <label for="weight2">Weight (pounds, 50-999):</label>
+        <input type="number" id="weight2" name="weight2" min="50" max="999" required>
+        <br>
+
+        <label for="age">Age:</label>
+        <select name="age" id="age" required>
+            <option value="1">Age 18 to 24</option>
+            <option value="2">Age 25 to 29</option>
+            <option value="3">Age 30 to 34</option>
+            <option value="4">Age 35 to 39</option>
+            <option value="5">Age 40 to 44</option>
+            <option value="6">Age 45 to 49</option>
+            <option value="7">Age 50 to 54</option>
+            <option value="8">Age 55 to 59</option>
+            <option value="9">Age 60 to 64</option>
+            <option value="10">Age 65 to 69</option>
+            <option value="11">Age 70 to 74</option>
+            <option value="12">Age 75 to 79</option>
+            <option value="13">Age 80 or older</option>
+            <option value="14">Don't know/Refused/Missing/all other value</option>
+        </select>
+        <br>
+
+        <label for="bmi_index">Body Mass Index (BMI):</label>
+        <input type="number" id="bmi_index" name="bmi_index" required>
+        <br>
+
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
+
+
