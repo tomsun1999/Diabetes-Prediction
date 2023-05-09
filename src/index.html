@@ -1,23 +1,49 @@
-
- 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <title>Diabetes Prediction</title>
+    <script>
+        async function handleSubmit(event) {
+            event.preventDefault();
+
+            // Gather form data
+            const formData = new FormData(event.target);
+
+            // Send data to the server
+            const response = await fetch("/predict", {
+                method: "POST",
+                body: formData
+            });
+
+            // Get prediction result from the server
+            const result = await response.json();
+            
+            // Display the result in the modal
+            const predictionText = document.getElementById("prediction-text");
+            predictionText.textContent = result.prediction_text;
+            // Show the modal
+            const modal = document.getElementById("result-modal");
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("result-modal");
+            modal.style.display = "none";
+        }
+    </script>
 </head>
 <body>
     <h1>Diabetes Prediction Survey</h1>
-    <form id="survey-form" method="POST" action="{{ url_for('predict') }}">
+    <form id="survey-form" onsubmit="handleSubmit(event)">
         <label for="physical_health">For how many days during the past 30 days was your physical health not good?</label>
-        <input type="number" id="physical_health" name="physical_health" min="1" max="30" required>
+        <input type="number" id="physical_health" name="physical_health" min="0" max="30" required>
         <br>
 
         <label for="mental_health">For how many days during the past 30 days was your mental health not good?</label>
-        <input type="number" id="mental_health" name="mental_health" min="1" max="30" required>
+        <input type="number" id="mental_health" name="mental_health" min="0" max="30" required>
         <br>
 
         <label for="employment_stats">Employment Status:</label>
@@ -114,9 +140,14 @@
 
         <button type="submit">Predict</button>
     </form>
-    <br>
-    <br>
-    {{ prediction_text }}
-  
+
+    <div id="result-modal" style="display: none;">
+        <div>
+            <span onclick="closeModal()" style="cursor: pointer;">&times;</span>
+            <p id="prediction-text"></p>
+        </div>
+    </div>
 </body>
 </html>
+
+
